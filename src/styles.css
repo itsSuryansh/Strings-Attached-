@@ -1,0 +1,284 @@
+:root {
+  --bg: #0d1117;
+  --bg-elevated: #161b22;
+  --panel: #1c2230;
+  --border: #2b3344;
+  --text: #e6edf3;
+  --text-muted: #8b95a5;
+  --accent: #f0a35e; /* warm instrument/wood tone */
+  --accent-strong: #ffb877;
+  --accent-dim: rgba(240, 163, 94, 0.14);
+  --radius: 14px;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(240, 163, 94, 0.08), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.screen {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Brand ------------------------------------------------------------ */
+
+.brand {
+  text-align: center;
+}
+
+.brand__name {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.brand__tagline {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Pre-session visual stage ---------------------------------------- */
+
+.stage__frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+
+/* Stylized fretboard silhouette — a decorative hint of the instrument,
+   never a fabricated tracking feed. */
+.stage__neck {
+  position: absolute;
+  left: -30px;
+  right: -30px;
+  top: 50%;
+  height: 72px;
+  transform: translateY(-50%) skewY(-4deg);
+  background: linear-gradient(90deg, #2a1d12, #4a3220, #2a1d12);
+  border-top: 3px solid #5b6b84;
+  border-bottom: 3px solid #5b6b84;
+  opacity: 0.85;
+}
+
+.stage__neck::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #c9d1d9 0,
+    #c9d1d9 2px,
+    transparent 2px,
+    transparent 26px
+  );
+  opacity: 0.35;
+}
+
+.stage__message {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.stage__ready {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text);
+}
+
+.stage__hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 320px;
+}
+
+/* Objective / roadmap --------------------------------------------- */
+
+.objective {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.objective__heading {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.objective__lede {
+  margin: 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.roadmap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.roadmap__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.roadmap__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 220px;
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.roadmap__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.roadmap__caption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.roadmap__arrow {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.objective__taglines {
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Actions ---------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 14px 34px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.06s ease, background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button--primary {
+  color: #10131a;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.button--primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.button--ghost {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.button--ghost:hover {
+  border-color: var(--text-muted);
+}
+
+/* State indicator -------------------------------------------------- */
+
+.state-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.state-indicator__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+}
